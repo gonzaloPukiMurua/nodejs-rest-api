@@ -25,7 +25,7 @@ app.use(bodyParser.json());
 //Routers
 
 app.use(require(path.resolve(__dirname, 'src/routes/index')));
-
+app.use('/todo', require(path.resolve(__dirname, 'src/routes/todo')));
 
 //App init
 app.listen(app.get('port'), () => {
