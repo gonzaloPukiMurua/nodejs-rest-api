@@ -1,6 +1,7 @@
 const express = require('express');
 const path = require('path');
 const exphbs = require('express-handlebars');
+const bodyParser = require('body-parser');
 const app = express();
 const port = 3000;
 
@@ -8,13 +9,13 @@ const port = 3000;
 
 app.set('port', process.env.PORT || port);
 app.set('views', path.resolve(__dirname, 'src/views'));
-app.engine('.hbs', {
+app.engine('.hbs', exphbs.engine({
     defaultLayout: 'main',
     layoutsDir: path.join(app.get('views'), 'layouts'),
     partialsDir: path.join(app.get('views'), 'partials'),
     extname: '.hbs',
     helpers: require('./src/lib/helpers')
-});
+}));
 app.set('view engine', '.hbs' );
 
 app.use(express.static(path.resolve(__dirname, 'src/public')));
