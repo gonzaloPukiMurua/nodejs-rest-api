@@ -24,6 +24,9 @@ app.use(bodyParser.json());
 
 //Routers
 
+app.use(require(path.resolve(__dirname, 'src/routes/index')));
+
+
 //App init
 app.listen(app.get('port'), () => {
     console.log(`Server is in port ${port}`);
