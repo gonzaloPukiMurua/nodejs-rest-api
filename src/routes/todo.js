@@ -4,7 +4,7 @@ const path = require('path');
 const pool = require('../../db');
 
 router.get('/', async (req, res) => {
-    const todo_list = await pool.get('SELECT * FROM todo_list');
+    const todo_list = await pool.query('SELECT * FROM todo_list');
     res.render('todo/list', {todo_list});
 })
 
