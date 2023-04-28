@@ -8,17 +8,18 @@ router.get('/', async (req, res) => {
     res.render('todo/list', {todo_list});
 })
 
-router.get('/add', (req, res) => {
+/*router.get('/add', (req, res) => {
     res.render('todo/add');
-})
+})*/
 
 router.post('/add', async (req, res) => {
+    console.log(req.body);
     const {title, description} = req.body;
     const form_data = {
         title,
         description
     };
-    await pool.query('INSERT INTO todo_list (title, description) SET ?', [form_data]);
+    await pool.query('INSERT INTO todo_list SET ?', [form_data]);
     res.redirect('/todo');
 })
 

@@ -1,4 +1,21 @@
 <div class="container p-2">
+    <div class="row">        
+        <div class="col-md-3">
+            <div class="card text-center">
+                <div class="card-body">
+                    <h3 class="card-title">Ingresar tarea</h3>
+                    <form action="/todo/add" method="POST">
+                        <input type="text" name="title" placeholder="Ingrese titulo de la tarea">
+                        <input type="textarea" name="description" placeholder="Describa la tarea">
+                        <button type="submit">Enviar</button>
+                    </form>                    
+                </div>
+            </div>
+        </div>       
+    </div>
+</div>
+
+<div class="container p-2">
     <div class="row">
         {{#each todo_list}}
         <div class="col-md-3">
