@@ -17,7 +17,7 @@ router.post('/add', (req, res) => {
         title,
         description
     };
-    pool.post('INSERT INTO todo_list (title, description) SET ?', [form_data]);
+    pool.query('INSERT INTO todo_list (title, description) SET ?', [form_data]);
     res.redirect('/todo');
 })
 
