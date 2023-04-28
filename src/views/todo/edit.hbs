@@ -1,5 +1,16 @@
-<form>
-    <input type="text" name="title" placeholder="Ingrese tarea">
-    <input type="textarea" name="description" placeholder="Descripcion de tarea">
-    <button type="submit">Guardar tarea</button>
-</form>
+<div class="container p-2">
+    <div class="row">        
+        <div class="col-md-3">
+            <div class="card text-center">
+                <div class="card-body">
+                    <h3 class="card-title">Editar tarea</h3>
+                    <form action="/todo/edit/{{todo_list.id}}" method="POST">
+                        <input type="text" name="title" placeholder="Ingrese titulo de la tarea" value="{{todo_list.title}}">
+                        <input type="textarea" name="description" placeholder="Describa la tarea" value="{{todo_list.description}}">
+                        <button type="submit">Enviar</button>
+                    </form>                    
+                </div>
+            </div>
+        </div>       
+    </div>
+</div>

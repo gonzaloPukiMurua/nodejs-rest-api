@@ -31,4 +31,24 @@ router.post('/update/:id', async (req, res) => {
     res.redirect('/todo');
 });
 
+router.get('/edit/:id', async (req, res) => {    
+    const {id} = req.params;    
+    console.log(id);
+    const edit_item = await pool.query('SELECT * FROM todo_list WHERE id = ?;', [id]);
+    res.render('todo/edit', {todo_list: edit_item[0]});
+})
+
+router.post('/edit/:id', async (req, res) => {
+    const {id} = req.params;
+    console.log(`ID: ${id}`);
+    console.log(req.body);
+    const {title, description} = req.body;
+    const form_data = {
+        title,
+        description
+    };
+    await pool.query('UPDATE todo_list SET ? WHERE Id = ?', [form_data, id]);
+    res.redirect('/todo');
+})
+
 module.exports = router;

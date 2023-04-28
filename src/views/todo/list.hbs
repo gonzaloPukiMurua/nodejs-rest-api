@@ -23,9 +23,9 @@
                 <div class="card-body">
                     <h3 class="card-title">{{title}}</h3>
                     <p class="m-2">{{description}}</p>
-                    <button>Editar</button>
+                    <a href="/todo/edit/{{id}}" class="btn btn-secondary">Editar</a>
                     <form action="/todo/update/{{id}}" method="POST">
-                        <button type="submit">Hecho</button>
+                        <button type="submit" class="btn btn-primary">Hecho</button>
                     </form>                    
                 </div>
             </div>
